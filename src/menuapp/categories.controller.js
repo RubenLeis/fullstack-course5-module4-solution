@@ -13,9 +13,9 @@ function CategoriesController() {
 
 CategoriesController.$inject = ['MenuDataService', 'items'];
 function CategoriesController(MenuDataService, items) {
-  console.log("CategoriesController");
-  var categoriesList = this;
-  categoriesList.items = items;
+  //console.log("CategoriesController");
+  var itemsCtrl = this;
+  itemsCtrl.items = items;
 }
 
 })();

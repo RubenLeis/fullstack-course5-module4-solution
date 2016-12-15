@@ -17,7 +17,6 @@ function MenuDataService($http) {
   */
   //FIXME: URL in constants
   service.getAllCategories = function () {
-	console.log("MenuDataService", "getAllCategories");
 	// $http returns a promise, which has a then function, which also returns a promise
 	var promise = $http({
 		 // The then function here is an opportunity to modify the response
@@ -26,7 +25,8 @@ function MenuDataService($http) {
 	})
 	.then(function (response) {
 		// Update the response ?
-		console.log(response);
+		//console.log("getAllCategories response:");
+		//console.log(response);
 		 // The return value gets picked up by the then in the controller.
 		return response.data;
 	});
@@ -39,14 +39,15 @@ function MenuDataService($http) {
 	// $http returns a promise, which has a then function, which also returns a promise
 	var promise = $http({
 		 // The then function here is an opportunity to modify the response
-		method: "GET",
 		url: ('https://davids-restaurant.herokuapp.com/menu_items.json'),
+		method: "GET",
 		params: {
 			category: categoryShortName
 		}
 	})
 	.then(function (response) {
 		// Update the response ?
+		console.log("getItemsForCategory response:");
 		console.log(response);
 		 // The return value gets picked up by the then in the controller.
 		return response.data;
