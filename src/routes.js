@@ -31,9 +31,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'src/tab2.html'
     })
 	
-	.state('categoriesList', {
-      url: '/categories-list',
-      templateUrl: 'src/menuapp/templates/categories.template.html'
+	.state('categoriesState', {
+      url: '/categories',
+      templateUrl: 'src/menuapp/templates/categories.template.html',
+	  controller: 'CategoriesController as categoriesCtrl'
     });
 }
 
