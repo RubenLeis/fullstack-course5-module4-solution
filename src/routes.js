@@ -12,8 +12,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
 
-  // Set up UI states
-  
+  // Set up UI states  
   $stateProvider
 	// Home page
     .state('home', {
@@ -40,9 +39,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 	  controller: 'ItemsController as itemsCtrl',
 	  resolve: {
 		items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
-			console.log("stateParams", $stateParams.categoryShortName);
-            var items =  MenuDataService.getItemsForCategory($stateParams.categoryShortName)
-            return items
+			//console.log($stateParams);
+			//console.log("stateParams:" + $stateParams.categoryShortName);
+            var items =  MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+            return items;
         }]
 	  }
     });

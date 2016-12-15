@@ -1,3 +1,4 @@
+//This component is used in categories.template to render category list
 (function () {
 'use strict';
 

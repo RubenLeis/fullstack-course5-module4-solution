@@ -5,7 +5,9 @@ angular.module('MenuApp')
 .service('MenuDataService', MenuDataService);
 
 /**
-* Service to retrieve menu items
+* Service to retrieve menu categories and items from a specific category
+* Promises and http == >http://stackoverflow.com/questions/12505760/processing-http-response-in-service
+*
 */
 MenuDataService.$inject = ['$http'];
 function MenuDataService($http) {
@@ -13,7 +15,7 @@ function MenuDataService($http) {
 
   /**
   * Get list item that match to searchTerm
-  * Promises and http == >http://stackoverflow.com/questions/12505760/processing-http-response-in-service
+  * 
   */
   //FIXME: URL in constants
   service.getAllCategories = function () {
@@ -34,7 +36,10 @@ function MenuDataService($http) {
 	return promise;
   };
 
-	
+  /**
+  * Get items from a specific categoryShortName
+  *
+  */
   service.getItemsForCategory = function(categoryShortName) {
 	// $http returns a promise, which has a then function, which also returns a promise
 	var promise = $http({
@@ -47,10 +52,10 @@ function MenuDataService($http) {
 	})
 	.then(function (response) {
 		// Update the response ?
-		console.log("getItemsForCategory response:");
-		console.log(response);
+		//console.log("getItemsForCategory response:");
+		//console.log(response);
 		 // The return value gets picked up by the then in the controller.
-		return response.data;
+		return response.data.menu_items;
 	});
 	// Return the promise to the controller
 	return promise;
